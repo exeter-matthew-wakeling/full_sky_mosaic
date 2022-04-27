@@ -49,7 +49,7 @@ java MosaicFilled 100 65 0 -eq >image.pnm
 ```
 which is shown below:
 
-[Image layout for 100x65 degree sub-frames](100x65_eq.png)
+![Image layout for 100x65 degree sub-frames](100x65_eq.png)
 
 Note that 120 by 65 degree images are *extremely* wide angle - most camera lenses are not this wide. A more realistic run is for calculating the layout of images using a 50mm lens on a APSC-sized sensor (assuming a Canon APSC sensors, which is the smallest APSC size, 16.84° by 25.03°). The stderr for this (with overlap set to 2 degrees) is:
 ```
@@ -66,10 +66,14 @@ Total 166 images required
 ```
 And this layout image is below:
 
-[Image layout for 50mm lens](50mm_2deg_apsc_eq.png)
+![Image layout for 50mm lens](50mm_2deg_apsc_eq.png)
 
 The software can also generate the layout in a cube-rectilinear projection, as below:
 
-[Image layout for 50mm lens, cube-rectilinear](50mm_2deg_apsc_cross.png)
+![Image layout for 50mm lens, cube-rectilinear](50mm_2deg_apsc_cross.png)
 
 The software correctly takes account of the fact the edge of a rectangle projected onto an equirectangular projection is curved, and therefore a ring of images doesn't necessarily cover a range of declination as large as the full height of the image.
+
+The number of images required to cover a full sphere varies with the focal length of the lens and the size of the sensor. Here is a graph showing how many images are required for three DSLR sensor sizes, with an overlap of 10% of the longer size of the sub-frames:
+
+![Number of images required to cover a full sphere](count_graph.png)
